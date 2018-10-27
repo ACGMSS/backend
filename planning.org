@@ -1,0 +1,31 @@
+* TODOs
+** TODO Set up package with a =package.json= so that we can specify dependencies
+** TODO Set up mongoose models for a faculty and a student account
+
+* Questions
+** TODO How do we specify the relationship for a faculty member TAing a class?
+** TODO How do we specify that a student is enrolled in a class?
+*** TODO could you have some 'course ID' that is used to get more information from UF?
+**** TODO Does each course have a unique ID?
+***** TODO Do we want to identify the TA-ing relationship by section or by course?
+**** TODO What sort of information could we get from the UF api for a particular course?
+**** TODO is there any risk that the UF servers are not available so then we couldn't access the important information?
+** TODO what did we decide about messaging? 
+** TODO can a faculty member do anything to a class they're /not/ TA-ing except register as a TA?
+*** TODO do we want to allow people to register as a 'teacher' for the course, or just as a TA?
+**** TODO would they be able to kick off other TAs?
+** TODO is there a 'smart' way to generate CRUD routes for the mongoose collections?
+** TODO how do you store map information about where office hours occur?
+*** TODO should office hours be in their own collection?
+** TODO how to model research?
+** TODO how to model job openings?
+** TODO how to model future courses?
+** TODO how to translate from period to hours?
+** TODO what does it mean 'future courses offered for registration purposes for easy scheduling?'
+** TODO is there a database-level wsay to verify that someone must have a UF email?
+** TODO how can we have verification emails?
+*** TODO /should/ we?
+*** TODO how do you send emails from node?
+*** TODO how do you model a waiting-for email reply?
+*** TODO what's the code to log in to the backend?
+** TODO how to let people reset their passwords?
