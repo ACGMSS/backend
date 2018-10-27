@@ -2,30 +2,54 @@
 ** TODO Set up package with a =package.json= so that we can specify dependencies
 ** TODO Set up mongoose models for a faculty and a student account
 
+** TODO verify that TAs and admins have UF emails
+
 * Questions
-** TODO How do we specify the relationship for a faculty member TAing a class?
-** TODO How do we specify that a student is enrolled in a class?
-*** TODO could you have some 'course ID' that is used to get more information from UF?
-**** TODO Does each course have a unique ID?
-***** TODO Do we want to identify the TA-ing relationship by section or by course?
-**** TODO What sort of information could we get from the UF api for a particular course?
-**** TODO is there any risk that the UF servers are not available so then we couldn't access the important information?
-** TODO what did we decide about messaging? 
-** TODO can a faculty member do anything to a class they're /not/ TA-ing except register as a TA?
-*** TODO do we want to allow people to register as a 'teacher' for the course, or just as a TA?
-**** TODO would they be able to kick off other TAs?
-** TODO is there a 'smart' way to generate CRUD routes for the mongoose collections?
-** TODO how do you store map information about where office hours occur?
-*** TODO should office hours be in their own collection?
-** TODO how to model research?
-** TODO how to model job openings?
-** TODO how to model future courses?
-** TODO how to translate from period to hours?
-** TODO what does it mean 'future courses offered for registration purposes for easy scheduling?'
-** TODO is there a database-level wsay to verify that someone must have a UF email?
-** TODO how can we have verification emails?
-*** TODO /should/ we?
-*** TODO how do you send emails from node?
-*** TODO how do you model a waiting-for email reply?
-*** TODO what's the code to log in to the backend?
-** TODO how to let people reset their passwords?
+** DONE How do we specify the relationship for a faculty member TAing a class?
+*** list of 'managed' course entities
+** DONE How do we specify that a student is enrolled in a class?
+*** DONE could you have some 'course ID' that is used to get more information from UF?
+**** DONE Does each course have a unique ID?
+***** DONE Do we want to identify the TA-ing relationship by section or by course?
+****** course
+**** DONE What sort of information could we get from the UF api for a particular course?
+***** everything
+**** DONE is there any risk that the UF servers are not available so then we couldn't access the important information?
+***** yes, so store it in what we can
+**** yes, so we store the information in our databases
+*** array of object IDs for courses
+** DONE can a faculty member do anything to a class they're /not/ TA-ing except register as a TA?
+*** no
+*** DONE do we want to allow people to register as a 'teacher' for the course, or just as a TA?
+**** no
+**** DONE would they be able to kick off other TAs?
+***** no reason
+** DONE is there a 'smart' way to generate CRUD routes for the mongoose collections?
+*** https://www.npmjs.com/package/crud-mongoose-simple
+** DONE how do you store map information about where office hours occur?
+*** DONE should office hours be in their own collection?
+**** no, but they can be their own model
+*** they use gmaps to find lat/long and then note a room number
+** DONE how to db-level enforce consistency b/w office hours' presence and managing a course?
+*** yes
+** DONE format for when office hours occur?
+*** each day is ={day: 'M'; periods: [7}=; list of these
+** DONE how to model roles? e.g. ta/professor
+*** enum of =['TA', 'professor', 'instructor', 'faculty']=
+** DONE how to model research?
+*** string (fuck that)
+** DONE how to model job openings?
+*** list the email so that you can get in touch with thembut only thobut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredbut only those that are offeredse that are offered
+*** job opportunity = ={ title: "", description: "", hoursPerWeek: 40 }=
+** DONE how to model future courses?
+*** the same way we model current courses- new collection
+** DONE how to translate from period to hours?
+*** we can store both the period and have a translator b/w them
+** DONE what does it mean 'future courses offered for registration purposes for easy scheduling?'
+*** DONE does this mean that students can register for future courses? or, once you're on a prof page, you can see what courses they're offering in the future?
+**** no, they can't. we will show them at the level of the teacher
+**** a teacher 
+** DONE is there a database-level way to verify that someone must have a UF email?
+*** https://mongoosejs.com/docs/api.html#schematype_SchemaType-validate
+** DONE how do we verify that a twitter account doesn't start with an @
+*** name can only contain underscores and alphanumeric characters

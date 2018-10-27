@@ -1,0 +1,7 @@
+** TODO how can we have verification emails?
+*** TODO /should/ we?
+*** TODO how do you send emails from node?
+*** TODO how do you model a waiting-for email reply?
+*** TODO what's the code to log in to the backend?
+** TODO how to let people reset their passwords?
+** TODO messaging
