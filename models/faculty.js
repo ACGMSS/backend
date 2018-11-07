@@ -19,6 +19,30 @@ const SectionAdministration = new mongoose.Schema({
     }
 });
 
+const JobOpening = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    hoursPerWeek: {
+        type: Number,
+        required: true,
+    },
+    payPerHour: {
+        type: Number,
+        required: true,
+    }
+});
+
+const Social = new mongoose.Schema({
+    twitterHandle: String,
+    linkedinLink: String,
+});
+
 module.exports = mongoose.model("Faculty", new mongoose.Schema({
     name: {
         type: String,
@@ -40,5 +64,21 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
             message: props => `${props.value} does not contain all unique IDs`
         },
         required: true
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    research: {
+        type: String,
+        default: "",
+    },
+    jobOpenings: {
+        type: [JobOpening],
+        default: [],
+    },
+    social: {
+        type: Social,
+        required: true,
     }
 }));

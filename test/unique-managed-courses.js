@@ -8,11 +8,17 @@ describe("Faculty", function () {
             let f = new Faculty({
                 name: "foobar",
                 email: "ok@thisisepic.com",
-                courses: [objID, objID]
+                courses: [objID, objID],
+                social: {},
+                password: "pwease encrypt o3o"
             });
             f.save(function (err) {
-                console.log(err.name);
-                if (err.name === "ValidationError") {
+                let fieldsWithErrors = Object.keys(err.errors);
+                let isErrorExpected =
+                    fieldsWithErrors.length === 1 &&
+                    fieldsWithErrors[0] === "courses" &&
+                    err.errors.courses.message.indexOf("does not contain all unique IDs") !== -1;
+                if (isErrorExpected) {
                     Faculty.deleteOne(f, function(err) {
                         if (err) done(err);
                         else done();
