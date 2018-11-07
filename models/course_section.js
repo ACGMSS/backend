@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const common = require("./common");
 
 const TermSchema = new mongoose.Schema({
     semester: {
@@ -29,5 +30,13 @@ module.exports = mongoose.model("CourseSection", new mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    meetingTime: {
+        required: true,
+        type: common.TimeInPeriods
+    },
+    meetingLocation: {
+        required: true,
+        type: common.UFLocation
     }
 }));
