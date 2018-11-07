@@ -1,14 +1,6 @@
 const mongoose = require('mongoose');
 const CourseSection = require("../models/course_section.js");
 
-before(function () {
-    mongoose.connect('mongodb://localhost/test');
-});
-
-after(() => {
-    mongoose.disconnect();
-});
-
 describe("CourseSection", function () {
     describe("#save", function () {
         it("should save without error", function(done) {
@@ -18,11 +10,30 @@ describe("CourseSection", function () {
                     semester: "Fall",
                     year: 2018
                 },
-                sectionNumber: "123546"
+                sectionNumber: "123546",
+                meetingTime: {
+                    monday: [],
+                    tuesday: [1],
+                    wednesday: [],
+                    thursday: [7],
+                    friday: [],
+                },
+                meetingLocation: {
+                    roomNumber: "CSE440",
+                    buildingLocation: {
+                        googleMapsLatitude: "100",
+                        googleMapsLongitude: "200",
+                    }
+                }
             });
             cs.save(function (err) {
                 if (err) done(err);
-                else done();
+                else {
+                    CourseSection.deleteOne(cs, function (err) {
+                        if (err) done(err);
+                        else done();
+                    });
+                }
             });
         });
     });

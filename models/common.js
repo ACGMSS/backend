@@ -4,6 +4,7 @@ const PeriodsForDay = {
     type: [Number],
     required: true,
     validate: {
+        // TODO: validate these are all periods
         validator: v => {
             return v.filter(Number.isInteger).length === v.length;
         },

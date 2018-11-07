@@ -35,7 +35,7 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
         validate: {
             validator: v => {
                 let s = new Set(v);
-                return s.size() === v.length;
+                return s.size === v.length;
             },
             message: props => `${props.value} does not contain all unique IDs`
         },
