@@ -44,6 +44,11 @@ const Social = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Faculty", new mongoose.Schema({
+    facultyType: {
+        type: String,
+        required: true,
+        enum: ["Professor", "TA", "Researcher"]
+    },
     name: {
         type: String,
         required: true,

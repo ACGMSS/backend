@@ -10,7 +10,8 @@ describe("Faculty", function () {
                 email: "ok@thisisepic.com",
                 courses: [objID, objID],
                 social: {},
-                password: "pwease encrypt o3o"
+                password: "pwease encrypt o3o",
+                facultyType: "Researcher"
             });
             f.save(function (err) {
                 let fieldsWithErrors = Object.keys(err.errors);
