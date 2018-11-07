@@ -1,0 +1,22 @@
+{
+  "name": "s-e-backend",
+  "version": "1.0.0",
+  "description": "Backend for UF software engineering, fall 2018",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smithjessk/s-e-backend.git"
+  },
+  "author": "Jess Smith",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/smithjessk/s-e-backend/issues"
+  },
+  "homepage": "https://github.com/smithjessk/s-e-backend#readme",
+  "dependencies": {
+    "mongoose": "^5.3.10"
+  }
+}

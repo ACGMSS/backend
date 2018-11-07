@@ -1,9 +1,10 @@
 * TODOs
 ** TODO Set up package with a =package.json= so that we can specify dependencies
 ** TODO Set up mongoose models for a faculty and a student account
-
+** TODO how to store get dept. code when adding course? just come from one.uf.edu?
+** TODO what capabilities fail for using the course identifier instead of the section number?
 ** TODO verify that TAs and admins have UF emails
-
+** TODO make angular module to access routes generated using =https://www.npmjs.com/package/crud-mongoose-simple=
 * Questions
 ** DONE How do we specify the relationship for a faculty member TAing a class?
 *** list of 'managed' course entities
@@ -17,7 +18,7 @@
 **** DONE is there any risk that the UF servers are not available so then we couldn't access the important information?
 ***** yes, so store it in what we can
 **** yes, so we store the information in our databases
-*** array of object IDs for courses
+*** array of course IDs, which are just strings (e.g., ABE2012C)
 ** DONE can a faculty member do anything to a class they're /not/ TA-ing except register as a TA?
 *** no
 *** DONE do we want to allow people to register as a 'teacher' for the course, or just as a TA?
@@ -31,7 +32,7 @@
 **** no, but they can be their own model
 *** they use gmaps to find lat/long and then note a room number
 ** DONE how to db-level enforce consistency b/w office hours' presence and managing a course?
-*** yes
+*** this is on the collection
 ** DONE format for when office hours occur?
 *** each day is ={day: 'M'; periods: [7}=; list of these
 ** DONE how to model roles? e.g. ta/professor
