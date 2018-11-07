@@ -52,7 +52,6 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true,
     },
     email: {
         type: String,
@@ -68,7 +67,7 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
             },
             message: props => `${props.value} does not contain all unique IDs`
         },
-        required: true
+        default: []
     },
     password: {
         type: String,
