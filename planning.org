@@ -1,8 +1,7 @@
 * TODOs
-** TODO Set up package with a =package.json= so that we can specify dependencies
-** TODO Set up mongoose models for a faculty and a student account
+** DONE Set up package with a =package.json= so that we can specify dependencies
+** DONE Set up mongoose models for a faculty and a student account
 ** TODO how to store get dept. code when adding course? just come from one.uf.edu?
-** TODO what capabilities fail for using the course identifier instead of the section number?
 ** TODO verify that TAs and admins have UF emails
 ** TODO make angular module to access routes generated using =https://www.npmjs.com/package/crud-mongoose-simple=
 * Questions
