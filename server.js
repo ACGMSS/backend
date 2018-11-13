@@ -15,11 +15,33 @@ function registerCRUDRoutes(model, leadingPathNoSlash) {
     let leadingPath = '/api/' + leadingPathNoSlash;
     app.get(leadingPath + '/list', model.httpGet());
     app.post(leadingPath, model.httpPost());
+    app.get(leadingPath + '/:id', model.httpGet());
 }
 
 registerCRUDRoutes(require('./models/course_section'), 'course_section');
 registerCRUDRoutes(require('./models/faculty'), 'faculty');
 registerCRUDRoutes(require('./models/student'), 'student');
+
+app.put('/api/student/:student_id/add_course/:section_id', (req, res) => {
+    const Student = require("./models/student");
+    const CourseSection = require("./models/course_section");
+    CourseSection.findOne({
+        sectionNumber: req.params.section_id
+    }, (err, section) => {
+        if (err) return res.status(400).send(err);
+        console.log(section);
+        Student.findOneAndUpdate({
+            _id: req.params.student_id,
+        }, {
+            $push: {
+                coursesEnrolled: section._id
+            }
+        }, (err) => {
+            if (err) return res.status(400).send(err);
+            return res.status(200).send("Course added");
+        });
+    });
+});
 
 app.use(express.static('client'));
 app.use(express.static('../Find-My-TA'));

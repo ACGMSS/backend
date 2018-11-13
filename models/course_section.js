@@ -65,9 +65,5 @@ module.exports = mongoose.model("CourseSection", new mongoose.Schema({
     meetingSettings: {
         type: [FriendlyMeetingSetting],
         required: true,
-        validate: {
-            validator: v => v.length > 0,
-            message: props => `Meeting settings is not an array of length above 0`
-        }
     }
 }));

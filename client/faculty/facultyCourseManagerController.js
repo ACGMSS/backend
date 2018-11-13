@@ -13,21 +13,20 @@ function func($scope, UFAPIService, $resource) {
     }
 
     $scope.registerAsTeacher = function(listing, sectionIndex) {
-        const CourseSection = $resource('/course_section/:id', {
+        const CourseSection = $resource('/api/course_section/:id', {
             id: '@_id'
         });
         let section = listing.sections[sectionIndex];
-        var upsertPromise = upsertCourseThatReturnsId({
+        var newCourse = new CourseSection({
             sectionNumber: listing.sections[sectionIndex].classNumber + "",
             term: { semester: "Fall", year: 2018 },
             name: listing.name,
             meetingSettings: section.meetTimes,
         });
-        upsertPromise.then(function(courseSectionID) {
-            return saveOfficeHoursForCourse(courseSectionID);
-        }).then(response => {
-            console.log(response);
-            showThatRequestWasSuccessful();
+        var savePromise = newCourse.$save();
+        // TODO: fix this so that it doesn't die if there's a duplicate
+        savePromise.then(function() {
+            window.location.href = "/faculty-set-office-hours.html?id=" + newCourse.data._id;
         }).catch(function (e) {
             console.log(e);
         });

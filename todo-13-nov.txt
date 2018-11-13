@@ -1,7 +1,7 @@
 - implement student + faculty logins
 - properly load courses that a TA is teaching for
 - integrate my menu for a ta to sign up for a new course
-- upsert the course and have a menu to display office hours
-- have a way for students to find courses
-- allow students to sign up for courses
+- load detailed info for course
+- add a simpler way to remove a course
+- have a page to enter office hours for a course
 - display courses on map
