@@ -5,7 +5,6 @@ const crud = require('crud-mongoose-simple');
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/test");
 mongoose.plugin(crud);
-const CourseSectionModel = require('./models/course_section');
 var bodyParser = require('body-parser');
 
 const app = express();
@@ -13,14 +12,17 @@ app.use(bodyParser.json());
 app.use(morgan('tiny'));
 
 function registerCRUDRoutes(model, leadingPathNoSlash) {
-    let leadingPath = '/' + leadingPathNoSlash;
+    let leadingPath = '/api/' + leadingPathNoSlash;
     app.get(leadingPath + '/list', model.httpGet());
     app.post(leadingPath, model.httpPost());
 }
 
-registerCRUDRoutes(CourseSectionModel, 'course_section');
+registerCRUDRoutes(require('./models/course_section'), 'course_section');
+registerCRUDRoutes(require('./models/faculty'), 'faculty');
+registerCRUDRoutes(require('./models/student'), 'student');
 
 app.use(express.static('client'));
+app.use(express.static('../Find-My-TA'));
 console.log(`Starting server on port ${serverPort}`);
 app.listen(serverPort);
 
