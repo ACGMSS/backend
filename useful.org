@@ -1,0 +1,3 @@
+- Presentation re: the backend concepts
+- Single page app that can save courses to the backend
+- Implementing authentication for teachers (adding a course for a teacher)

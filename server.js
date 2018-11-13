@@ -1,6 +1,8 @@
-const mongoURI = 'mongodb://127.0.0.1:27017/s-e-backend';
-const CourseSection = require("./models/course_section.js");
-
-const cs = new CourseSection({
-    
-})
+const serverPort = 3000;
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+app.use(morgan('tiny'));
+app.use(express.static('client'));
+console.log(`Starting server on port ${serverPort}`);
+app.listen(serverPort);

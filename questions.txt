@@ -1,0 +1,43 @@
+6. what do we want to allow people to enter to search the UF API for a course?
+
+7. do we want the search to be over courses that are already defined in the system? or over courses from the UF API?
+   - what's the elegant solution here? that someone adding a course with the same section number will result in the course /not/ being doubly added to the system?
+
+8. what /can/ we search for using the UF api for courses?
+
+- term
+- semester
+- category (what's this)
+- course code
+- course title
+- dept
+- instructor (does this need to be an exact match?)
+
+
+9. how to make a service that searches for these things?
+
+9. how can we drive tests of the backend API?
+
+12. how can the front-end authenticate requests cmoing from a particular faculty or student?
+
+13 how do we enforce in the backend that a request is coming from a particular faculty or student?
+
+16. what backend routes do I need to enable to add people to search and add courses?
+
+18. do we need to glob our application?
+
+23. should I build a module that involves translating the course numbers to hours?
+
+24. how to save the coordinates for where a class occurs?
+
+25. does the UF api give us a room number?
+
+26. how can we come up with better names for our controllers?
+
+27. how can I test that all of the $resource routes for the teacher work?
+
+28. how to get the app up on heroku?
+
+29. what else do we need to add to the courses that we store in the database?
+
+30. how can I return /all/ of the courses?
