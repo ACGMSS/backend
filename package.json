@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/smithjessk/s-e-backend#readme",
   "dependencies": {
+    "crud-mongoose-simple": "^2.0.5",
     "express": "^4.16.4",
     "mongoose": "^5.3.10",
     "morgan": "^1.9.1"

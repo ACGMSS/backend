@@ -13,20 +13,7 @@ function func($scope, UFAPIService, $resource) {
     }
 
     $scope.registerAsTeacher = function(listing, sectionIndex) {
-/**
-   eetTimes: Array(1)
-   0:
-   meetBldgCode: "0496"
-   meetBuilding: "MCCB"
-   meetDays: (3) ["M", "W", "F"]
-   meetNo: 1
-   meetPeriodBegin: "8"
-   meetPeriodEnd: "8"
-   meetRoom: "G086"
-   meetTimeBegin: "3:00 PM"
-   meetTimeEnd: "3:50 PM"
-   */
-        const CourseSection = $resource('/api/course_sections/:id', {
+        const CourseSection = $resource('/api/CourseSection/:id', {
             id: '@_id'
         });
         let section = listing.sections[sectionIndex];
