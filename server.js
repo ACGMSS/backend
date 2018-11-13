@@ -6,9 +6,10 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/test");
 mongoose.plugin(crud);
 const CourseSectionModel = require('./models/course_section');
+var bodyParser = require('body-parser');
 
 const app = express();
-
+app.use(bodyParser.json());
 app.use(morgan('tiny'));
 
 function registerCRUDRoutes(model, leadingPathNoSlash) {

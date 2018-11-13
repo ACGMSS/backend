@@ -28,7 +28,11 @@ const FriendlyMeetingSetting = new mongoose.Schema({
     },
     meetDays: {
         type: [String],
-        required: true
+        required: true,
+        validate: {
+            validator: v => v.length > 0,
+            message: props => `Meeting days is not an array of length above 0`
+        }
     },
     meetPeriodBegin: {
         type: String,
@@ -59,7 +63,11 @@ module.exports = mongoose.model("CourseSection", new mongoose.Schema({
         required: true
     },
     meetingSettings: {
+        type: [FriendlyMeetingSetting],
         required: true,
-        type: [FriendlyMeetingSetting]
+        validate: {
+            validator: v => v.length > 0,
+            message: props => `Meeting settings is not an array of length above 0`
+        }
     }
 }));

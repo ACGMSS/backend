@@ -13,7 +13,7 @@ function func($scope, UFAPIService, $resource) {
     }
 
     $scope.registerAsTeacher = function(listing, sectionIndex) {
-        const CourseSection = $resource('/api/CourseSection/:id', {
+        const CourseSection = $resource('/course_section/:id', {
             id: '@_id'
         });
         let section = listing.sections[sectionIndex];

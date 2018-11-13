@@ -6,7 +6,7 @@ const PeriodsForDay = {
     validate: {
         // TODO: validate these are all periods
         validator: v => {
-            return v.filter(Number.isInteger).length === v.length;
+            return v.length > 0 && v.filter(Number.isInteger).length === v.length;
         },
         message: props => `${props.value} does not contain all integers`
     }
