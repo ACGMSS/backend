@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="style.css">
   </head>
   <body ng-app="find-my-ta">
-    <div class="container">
+      <div class="container">
       <div class="row" ng-controller="FacultyCourseManagerController">
         <div class="col-md-6">
-          <div class="input-group" id="searchBar">
-              <span class="input-group-addon" id="sizing-addon1">
-                  <span class="glyphicon glyphicon-search"/>
-              </span>
-          </div>
+            <div class="input-group" id="searchBar">
+                <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                <input type="text" class="form-control" placeholder="Search" ng-model="query" >
+            </div>
+            <div class="tableWrapper">
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Course Code</th>
+                    </tr>
+                    <tr ng-repeat="listing in listings">
+                        <td>{{listing.code}}</td>
+                        <td>{{listing.name}}</td>
+                        <td><button ng-click="seeSections(listing)">See Sections</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tableWrapper">
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>Class Number</th>
+                    </tr>
+                    <tr ng-repeat="section in selectedListing.sections track by $index">
+                        <td>{{section.classNumber}}</td>
+                        <td><button ng-click="registerAsTeacher(selectedListing, $index)">Register As Teacher</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
-            <p>Course Number: {{detailedInfo.code}}</p>
-            <p>Section Number: {{detailedInfo.name}}</p>
-            <p>Professor: {{detailedInfo.professor}}</p>
-            <p>Meeting Time: {{prettyPrintMeetingTime(detailedInfo.meetingTimeInHours)}}</p>
-            <p>Room Number: {{detailedInfo.roomNumber}}</p>
-          </div>
-      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>

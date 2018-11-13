@@ -5,8 +5,19 @@ angular.module('faculty').controller('FacultyCourseManagerController', ['$scope'
             term: 2188
         }).then(function (courses) {
             $scope.listings = courses;
+            console.log($scope.listings[0]);
         });
     }
+
+    $scope.registerAsTeacher = function(listing, sectionIndex) {
+        console.log(listing);
+        console.log(sectionIndex);
+    };
+
+    $scope.seeSections = function(listing) {
+        $scope.selectedListing = listing;
+        console.log($scope.selectedListing);
+    };
 
     $scope.departments = {
         "Zoology": "16900700",
