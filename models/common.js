@@ -13,11 +13,11 @@ const PeriodsForDay = {
 };
 
 module.exports.TimeInPeriods = new mongoose.Schema({
-    monday:  PeriodsForDay,
-    tuesday:  PeriodsForDay,
-    wednesday:  PeriodsForDay,
-    thursday:  PeriodsForDay,
-    friday:  PeriodsForDay,
+    M:  PeriodsForDay,
+    T:  PeriodsForDay,
+    W:  PeriodsForDay,
+    R:  PeriodsForDay,
+    F:  PeriodsForDay,
 });
 
 

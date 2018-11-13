@@ -17,6 +17,33 @@ const TermSchema = new mongoose.Schema({
     }
 });
 
+const FriendlyMeetingSetting = new mongoose.Schema({
+    meetBldgCode: {
+        type: String,
+        required: true
+    },
+    meetBuilding: {
+        type: String,
+        required: true
+    },
+    meetDays: {
+        type: [String],
+        required: true
+    },
+    meetPeriodBegin: {
+        type: String,
+        required: true,
+    },
+    meetPeriodEnd: {
+        type: String,
+        required: true,
+    },
+    meetRoom: {
+        type: String,
+        required: true
+    },
+});
+
 module.exports = mongoose.model("CourseSection", new mongoose.Schema({
     sectionNumber: {
         type: String,
@@ -31,12 +58,8 @@ module.exports = mongoose.model("CourseSection", new mongoose.Schema({
         type: String,
         required: true
     },
-    meetingTime: {
+    meetingSettings: {
         required: true,
-        type: common.TimeInPeriods
-    },
-    meetingLocation: {
-        required: true,
-        type: common.UFLocation
+        type: [FriendlyMeetingSetting]
     }
 }));

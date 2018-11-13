@@ -1,4 +1,7 @@
-angular.module('faculty').controller('FacultyCourseManagerController', ['$scope', 'UFAPIService', function($scope, UFAPIService) {
+angular.module('faculty').controller('FacultyCourseManagerController',
+                                     ['$scope', 'UFAPIService', '$resource', 
+
+function func($scope, UFAPIService, $resource) {
     function updateListingsForDepartment(department) {
         UFAPIService().queryUFCourses({
             dept: department,
@@ -10,13 +13,39 @@ angular.module('faculty').controller('FacultyCourseManagerController', ['$scope'
     }
 
     $scope.registerAsTeacher = function(listing, sectionIndex) {
-        console.log(listing);
-        console.log(sectionIndex);
+/**
+   eetTimes: Array(1)
+   0:
+   meetBldgCode: "0496"
+   meetBuilding: "MCCB"
+   meetDays: (3) ["M", "W", "F"]
+   meetNo: 1
+   meetPeriodBegin: "8"
+   meetPeriodEnd: "8"
+   meetRoom: "G086"
+   meetTimeBegin: "3:00 PM"
+   meetTimeEnd: "3:50 PM"
+   */
+        const CourseSection = $resource('/api/course_sections/:id', {
+            id: '@_id'
+        });
+        let section = listing.sections[sectionIndex];
+        var newCard = new CourseSection({
+            sectionNumber: listing.sections[sectionIndex].classNumber + "",
+            term: { semester: "Fall", year: 2018 },
+            name: listing.name,
+            meetingSettings: section.meetTimes,
+        });
+        var savePromise = newCard.$save();
+        savePromise.then(function() {
+            console.log(newCard);
+        }).catch(function (e) {
+            console.log(e);
+        });
     };
 
     $scope.seeSections = function(listing) {
         $scope.selectedListing = listing;
-        console.log($scope.selectedListing);
     };
 
     $scope.departments = {
