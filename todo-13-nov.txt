@@ -2,6 +2,5 @@
 - properly load courses that a TA is teaching for
 - integrate my menu for a ta to sign up for a new course
 - load detailed info for course
-- add a simpler way to remove a course
 - have a page to enter office hours for a course
 - display courses on map

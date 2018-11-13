@@ -43,6 +43,27 @@ app.put('/api/student/:student_id/add_course/:section_id', (req, res) => {
     });
 });
 
+app.put('/api/student/:student_id/drop_course/:section_id', (req, res) => {
+    const Student = require("./models/student");
+    const CourseSection = require("./models/course_section");
+    CourseSection.findOne({
+        sectionNumber: req.params.section_id
+    }, (err, section) => {
+        if (err) return res.status(400).send(err);
+        console.log(section);
+        Student.findOneAndUpdate({
+            _id: req.params.student_id,
+        }, {
+            $pullAll: {
+                coursesEnrolled: [section._id]
+            }
+        }, (err) => {
+            if (err) return res.status(400).send(err);
+            return res.status(200).send("Course added");
+        });
+    });
+});
+
 app.use(express.static('client'));
 app.use(express.static('../Find-My-TA'));
 console.log(`Starting server on port ${serverPort}`);
