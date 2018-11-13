@@ -1,8 +1,8 @@
 angular.module('faculty').service('UFAPIService', ['$http', function ($http) {
-    const baseURL = "https://one.ufl.eduapix/soc/schedule/";
+    const baseURL = "https://one.ufl.edu/apix/soc/schedule/";
     const proxyURL = "http://cors-anywhere.herokuapp.com/";
     function encodeRequestToProxy(queryString) {
-        let realUrl = baseURL + queryString;
+        let realUrl = baseURL + '?' + queryString;
         return `http://cors-anywhere.herokuapp.com/${realUrl}`;
     }
 
@@ -16,7 +16,7 @@ angular.module('faculty').service('UFAPIService', ['$http', function ($http) {
     function queryUFCourses(query) {
         let queryString = "";
         function modifyIfNotNull(field) {
-            if (query.hasOwnProprety(field)) {
+            if (query.hasOwnProperty(field)) {
                 if (queryString !== "") {
                     queryString = queryString + "&";
                 }
@@ -35,8 +35,7 @@ angular.module('faculty').service('UFAPIService', ['$http', function ($http) {
     }
 
     return function() {
-        return new {
-            queryUFCourses,
-        };
+        this.queryUFCourses = queryUFCourses;
+        return this;
     };
 }]);

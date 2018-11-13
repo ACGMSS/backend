@@ -1,6 +1,6 @@
 angular.module('faculty').controller('FacultyCourseManagerController', ['$scope', 'UFAPIService', function($scope, UFAPIService) {
     function updateListingsForDepartment(department) {
-        UFAPIService.queryUFCourses({
+        UFAPIService().queryUFCourses({
             dept: department,
             term: 2188
         }).then(function (courses) {
