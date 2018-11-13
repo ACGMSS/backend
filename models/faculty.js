@@ -59,10 +59,10 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
         unique: true,
     },
     courses: {
-        type: [mongoose.Schema.Types.ObjectId],
+        type: [SectionAdministration],
         validate: {
             validator: v => {
-                let s = new Set(v);
+                let s = new Set(v.map(x => x.section));
                 return s.size === v.length;
             },
             message: props => `${props.value} does not contain all unique IDs`

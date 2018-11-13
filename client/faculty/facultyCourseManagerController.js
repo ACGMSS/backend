@@ -17,15 +17,17 @@ function func($scope, UFAPIService, $resource) {
             id: '@_id'
         });
         let section = listing.sections[sectionIndex];
-        var newCard = new CourseSection({
+        var upsertPromise = upsertCourseThatReturnsId({
             sectionNumber: listing.sections[sectionIndex].classNumber + "",
             term: { semester: "Fall", year: 2018 },
             name: listing.name,
             meetingSettings: section.meetTimes,
         });
-        var savePromise = newCard.$save();
-        savePromise.then(function() {
-            console.log(newCard);
+        upsertPromise.then(function(courseSectionID) {
+            return saveOfficeHoursForCourse(courseSectionID);
+        }).then(response => {
+            console.log(response);
+            showThatRequestWasSuccessful();
         }).catch(function (e) {
             console.log(e);
         });
