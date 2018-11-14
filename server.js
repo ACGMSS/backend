@@ -21,6 +21,19 @@ function registerCRUDRoutes(model, leadingPathNoSlash) {
     app.get(leadingPath + '/:id', model.httpGet());
 }
 
+app.post('/api/course_section/upsert', (req, res) => {
+    CourseSection.findOne({
+        sectionNumber: req.body.sectionNumber,
+    }, (err, section) => {
+        if (err) return res.status(400).send(err);
+        if (section) return res.status(200).send(section._id);
+        CourseSection.create(req.body, (err, newSection) => {
+            if (err) return res.status(400).send(err);
+            if (section) return res.status(200).send(newSection._id);
+        });
+    });
+});
+
 registerCRUDRoutes(CourseSection, 'course_section');
 registerCRUDRoutes(Faculty, 'faculty');
 registerCRUDRoutes(Student, 'student');

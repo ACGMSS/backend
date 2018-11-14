@@ -2,7 +2,8 @@
 - let TAs edit their office hours and other information for courses
 - let TAs edit their personal information
 - consider dropping 'edit location' because the TA can enter a location for each different section?
-- gracefully handle duplicate courses when adding as TA
 - loading bar when loading courses from one.uf.edu
 - real names when signing up (and other information)
-- test multiple TAs for a course
+- allow registering office hours as something other than a string
+- display more detailed information about the course
+- display personal information about faculty (research interests and so on)
