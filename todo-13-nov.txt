@@ -1,11 +1,18 @@
-- make office hours + location required when signing up for a new course
 - let TAs edit their office hours and other information for courses
-- let TAs edit their personal information
-- consider dropping 'edit location' because the TA can enter a location for each different section?
-- loading bar when loading courses from one.uf.edu
 - real names when signing up (and other information)
-- allow registering office hours as something other than a string
 - display more detailed information about the course
-- display personal information about faculty (research interests and so on)
-- automatically storing map coordinates
+- add these things to pivotal tracker
+- embed rate my professor
+- add link to detailed view when showing the faculty managing a course
+
+for the future:
+- loading bar when loading courses from one.uf.edu
 - get /all/ courses, not just the first 50
+- add better error message when a student is not logged in
+- ?? prevent faculty from registering for the same section number twice?
+- allow registering office hours as something other than a string
+- display personal information about faculty (research interests and so on)
+- let TAs edit their personal information
+- password resets
+- storing map locations as something other than a string (so that it can be piped into gmaps.... is there a gmaps ID?)
+- get rid of period and show hours

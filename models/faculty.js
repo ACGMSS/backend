@@ -41,6 +41,7 @@ const JobOpening = new mongoose.Schema({
 const Social = new mongoose.Schema({
     twitterHandle: String,
     linkedinLink: String,
+    rateMyProfessor: String,
 });
 
 module.exports = mongoose.model("Faculty", new mongoose.Schema({
@@ -84,5 +85,5 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
     social: {
         type: Social,
         required: true,
-    }
+    },
 }));
