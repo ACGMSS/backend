@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/test");
 mongoose.plugin(crud);
 var bodyParser = require('body-parser');
+const Student = require('./models/student');
+const Faculty = require('./models/faculty');
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,11 +21,10 @@ function registerCRUDRoutes(model, leadingPathNoSlash) {
 }
 
 registerCRUDRoutes(require('./models/course_section'), 'course_section');
-registerCRUDRoutes(require('./models/faculty'), 'faculty');
-registerCRUDRoutes(require('./models/student'), 'student');
+registerCRUDRoutes(Faculty, 'faculty');
+registerCRUDRoutes(Student, 'student');
 
 app.put('/api/student/:student_id/add_course/:section_id', (req, res) => {
-    const Student = require("./models/student");
     const CourseSection = require("./models/course_section");
     CourseSection.findOne({
         sectionNumber: req.params.section_id
@@ -44,7 +45,6 @@ app.put('/api/student/:student_id/add_course/:section_id', (req, res) => {
 });
 
 app.put('/api/student/:student_id/drop_course/:section_id', (req, res) => {
-    const Student = require("./models/student");
     const CourseSection = require("./models/course_section");
     CourseSection.findOne({
         sectionNumber: req.params.section_id
@@ -65,7 +65,6 @@ app.put('/api/student/:student_id/drop_course/:section_id', (req, res) => {
 });
 
 app.get('/api/detailed_section/:sectionNumber', (req, res) => {
-    const Faculty = require('./models/faculty');
     const CourseSection = require('./models/course_section');
     CourseSection.findOne({sectionNumber: req.params.sectionNumber}, (err, section) => {
         if (err) return res.status(400).send(err);
@@ -76,6 +75,28 @@ app.get('/api/detailed_section/:sectionNumber', (req, res) => {
                 section
             });
         });
+    });
+});
+
+app.post('/api/student_login', (req, res) => {
+    Student.find({
+        email: req.body.username,
+        password: req.body.password,
+    }, (err, students) => {
+        if (err) return res.status(400).send(err);
+        else if (students.length === 0) return res.status(400).send("No matching students");
+        else return res.status(200).send(students[0]);
+    });
+});
+
+app.post('/api/faculty_login', (req, res) => {
+    Faculty.find({
+        email: req.body.username,
+        password: req.body.password,
+    }, (err, faculty) => {
+        if (err) return res.status(400).send(err);
+        else if (faculty.length === 0) return res.status(400).send("No matching faculty");
+        else return res.status(200).send(faculty[0]);
     });
 });
 
