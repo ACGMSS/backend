@@ -1,9 +1,7 @@
 - let TAs edit their office hours and other information for courses
-- real names when signing up (and other information)
 - display more detailed information about the course
 - add these things to pivotal tracker
 - embed rate my professor
-- add link to detailed view when showing the faculty managing a course
 
 for the future:
 - loading bar when loading courses from one.uf.edu
