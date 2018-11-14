@@ -89,6 +89,7 @@ app.get('/api/detailed_section/:sectionNumber', (req, res) => {
                     return course.section.toString() === section._id.toString();
                 })[0];
                 return {
+                    _id: x._id,
                     name: x.name,
                     email: x.email,
                     officeHoursTime: course.officeHoursTime,
