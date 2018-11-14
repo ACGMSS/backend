@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-app="find-my-ta">
+      <div class="container">
+      <div class="row" ng-controller="FacultyAddSectionAdministrationController">
+        <div class="col-md-6">
+            <div class="input-group">
+                <label for="slack" style="display: block;"><b>Slack</b></label>
+                <input type="text" class="form-control" placeholder="Slack" name="slack" ng-model="slack">
+
+                <label for="discord" style="display: block;"><b>Discord</b></label>
+                <input type="text" class="form-control" placeholder="Discord" name="discord" ng-model="discord">
+
+                <label for="discord" style="display: block;"><b>Discord</b></label>
+                <input type="text" class="form-control" placeholder="Discord" name="discord" required ng-model="discord">
+
+
+
+                officeHoursTime: {
+                required: true,
+                type: common.TimeInPeriods,
+                },
+                officeHoursLocation: {
+                required: true,
+                type: common.UFLocation
+                }
+
+
+            </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-resource.js"></script>
+    <script src="app.js"></script>
+    <script src="facultyAddSectionAdministrationController.js"></script>
+  </body>
+</html>

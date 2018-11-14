@@ -64,6 +64,21 @@ app.put('/api/student/:student_id/drop_course/:section_id', (req, res) => {
     });
 });
 
+app.get('/api/detailed_section/:sectionNumber', (req, res) => {
+    const Faculty = require('./models/faculty');
+    const CourseSection = require('./models/course_section');
+    CourseSection.findOne({sectionNumber: req.params.sectionNumber}, (err, section) => {
+        if (err) return res.status(400).send(err);
+        Faculty.find({courses: section._id}, (err, admins) => {
+            if (err) return res.status(400).send(err);
+            return res.status(200).send({
+                admins,
+                section
+            });
+        });
+    });
+});
+
 app.use(express.static('client'));
 app.use(express.static('../Find-My-TA'));
 console.log(`Starting server on port ${serverPort}`);

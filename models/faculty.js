@@ -11,11 +11,11 @@ const SectionAdministration = new mongoose.Schema({
     slack: String,
     officeHoursTime: {
         required: true,
-        type: common.TimeInPeriods,
+        type: String,
     },
     officeHoursLocation: {
         required: true,
-        type: common.UFLocation
+        type: String
     }
 });
 
