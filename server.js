@@ -100,7 +100,6 @@ app.post('/api/faculty_login', (req, res) => {
     });
 });
 
-app.use(express.static('client'));
 app.use(express.static('../Find-My-TA'));
 console.log(`Starting server on port ${serverPort}`);
 app.listen(serverPort);
