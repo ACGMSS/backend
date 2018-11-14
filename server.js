@@ -27,9 +27,10 @@ app.post('/api/course_section/upsert', (req, res) => {
     }, (err, section) => {
         if (err) return res.status(400).send(err);
         if (section) return res.status(200).send(section._id);
-        CourseSection.create(req.body, (err, newSection) => {
+        console.log(req.body);
+        CourseSection.create(req.body, (err, section) => {
             if (err) return res.status(400).send(err);
-            if (section) return res.status(200).send(newSection._id);
+            return res.status(200).send(section._id);
         });
     });
 });

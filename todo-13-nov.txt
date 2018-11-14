@@ -1,4 +1,4 @@
-- find courses by department
+- make office hours + location required when signing up for a new course
 - let TAs edit their office hours and other information for courses
 - let TAs edit their personal information
 - consider dropping 'edit location' because the TA can enter a location for each different section?
@@ -7,3 +7,5 @@
 - allow registering office hours as something other than a string
 - display more detailed information about the course
 - display personal information about faculty (research interests and so on)
+- automatically storing map coordinates
+- get /all/ courses, not just the first 50
