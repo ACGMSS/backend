@@ -1,4 +1,4 @@
-const serverPort = 3000;
+const serverPort = process.env.PORT || 3000;
 const express = require('express');
 const morgan = require('morgan');
 const crud = require('crud-mongoose-simple');
