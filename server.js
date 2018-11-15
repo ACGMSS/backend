@@ -160,7 +160,7 @@ app.put('/api/faculty/:faculty_id/manage_course', (req, res) => {
     });
 });
 
-app.use(express.static('../Find-My-TA'));
+app.use(express.static('./Find-My-TA'));
 console.log(`Starting server on port ${serverPort}`);
 app.listen(serverPort);
 

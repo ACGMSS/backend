@@ -1,0 +1,3 @@
+[submodule "Find-My-TA"]
+	path = Find-My-TA
+	url = git@github.com:ACGMSS/Find-My-TA.git
