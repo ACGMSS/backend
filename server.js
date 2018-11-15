@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const crud = require('crud-mongoose-simple');
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/test");
+mongoose.connect(process.env.MONGODB_URI);
 mongoose.plugin(crud);
 var bodyParser = require('body-parser');
 const Student = require('./models/student');
