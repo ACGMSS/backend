@@ -58,6 +58,12 @@ module.exports = mongoose.model("Faculty", new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        validate: {
+            validator: v => {
+                return v.endsWith("@ufl.edu");
+            },
+            message: props => `${props.value} does not end with ufl.edu`
+        }
     },
     courses: {
         type: [SectionAdministration],

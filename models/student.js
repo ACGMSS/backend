@@ -9,6 +9,12 @@ module.exports = mongoose.model('Student', new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        validate: {
+            validator: v => {
+                return v.endsWith("@ufl.edu");
+            },
+            message: props => `${props.value} does not end with ufl.edu`
+        }
     },
     password: {
         type: String,

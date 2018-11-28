@@ -20,10 +20,12 @@ app.use(maybeAuthorize);
 function maybeAuthorize(req, res, next) {
     const basicAuth = require('express-basic-auth');
     const allowedRoutes = {
-        POST: ['/api/faculty', '/api/faculty_login', '/api/student_login']
+        POST: ['/api/faculty',
+               '/api/faculty_login',
+               '/api/student_login',
+               '/api/student']
     };
     let routesForMethod = allowedRoutes[req.method] || [];
-    console.log(routesForMethod);
     if (routesForMethod.indexOf(req.path) != -1) {
         next();
     } else {
@@ -42,7 +44,6 @@ function accountLookupForAuth(uname, pw, cb) {
         if (err) cb(err, false);
         else if (student) cb(err, true);
         else {
-            console.log(`faculty; uname = ${uname}; pw = ${pw}`);
             Faculty.findOne({
                 email: uname,
                 password: pw,
@@ -63,7 +64,6 @@ function registerCRUDRoutes(model, leadingPathNoSlash) {
 }
 
 app.put('/api/faculty/:id', (req, res) => {
-    console.log(req.params.id);
     Faculty.update({
         _id: req.params.id
     }, req.body, (err) => {
@@ -78,7 +78,6 @@ app.post('/api/course_section/upsert', (req, res) => {
     }, (err, section) => {
         if (err) return res.status(400).send(err);
         if (section) return res.status(200).send(section._id);
-        console.log(req.body);
         CourseSection.create(req.body, (err, section) => {
             if (err) return res.status(400).send(err);
             return res.status(200).send(section._id);
