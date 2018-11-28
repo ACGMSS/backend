@@ -15,6 +15,8 @@
 - real detailed course view
 - better error messages with map
 - research, job openings, etc., when signing up for a class
+- making fields required
+- drop down menu to enter period hours
 
 map:
 
