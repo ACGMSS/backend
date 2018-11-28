@@ -15,12 +15,24 @@ const CourseSection = require('./models/course_section');
 const app = express();
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
-
-const basicAuth = require('express-basic-auth');
-app.use(basicAuth({
-    authorizer: accountLookupForAuth,
-    authorizeAsync: true
-}));
+app.use(express.static('./Find-My-TA'));
+app.use(maybeAuthorize);
+function maybeAuthorize(req, res, next) {
+    const basicAuth = require('express-basic-auth');
+    const allowedRoutes = {
+        POST: ['/api/faculty', '/api/faculty_login', '/api/student_login']
+    };
+    let routesForMethod = allowedRoutes[req.method] || [];
+    console.log(routesForMethod);
+    if (routesForMethod.indexOf(req.path) != -1) {
+        next();
+    } else {
+        basicAuth({
+            authorizer: accountLookupForAuth,
+            authorizeAsync: true
+        })(req, res, next);
+    }
+}
 
 function accountLookupForAuth(uname, pw, cb) {
     Student.findOne({
@@ -30,6 +42,7 @@ function accountLookupForAuth(uname, pw, cb) {
         if (err) cb(err, false);
         else if (student) cb(err, true);
         else {
+            console.log(`faculty; uname = ${uname}; pw = ${pw}`);
             Faculty.findOne({
                 email: uname,
                 password: pw,
@@ -188,7 +201,6 @@ app.put('/api/faculty/:faculty_id/manage_course', (req, res) => {
     });
 });
 
-app.use(express.static('./Find-My-TA'));
 console.log(`Starting server on port ${serverPort}`);
 app.listen(serverPort);
 
