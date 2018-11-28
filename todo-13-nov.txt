@@ -2,8 +2,6 @@
 - display more detailed information about the course
 - add these things to pivotal tracker
 - embed rate my professor
-
-for the future:
 - loading bar when loading courses from one.uf.edu
 - get /all/ courses, not just the first 50
 - add better error message when a student is not logged in
@@ -14,3 +12,9 @@ for the future:
 - password resets
 - storing map locations as something other than a string (so that it can be piped into gmaps.... is there a gmaps ID?)
 - get rid of period and show hours
+- real detailed course view
+- better error messages with map
+- research, job openings, etc., when signing up for a class
+
+maybe:
+- upload pictures
