@@ -14,6 +14,32 @@ const app = express();
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
 
+const basicAuth = require('express-basic-auth');
+app.use(basicAuth({
+    authorizer: accountLookupForAuth,
+    authorizeAsync: true
+}));
+
+function accountLookupForAuth(uname, pw, cb) {
+    Student.findOne({
+        email: uname,
+        password: pw,
+    }, (err, student) => {
+        if (err) cb(err, false);
+        else if (student) cb(err, true);
+        else {
+            Faculty.findOne({
+                email: uname,
+                password: pw,
+            }, (err, faculty) => {
+                if (err) cb(err, false);
+                else if (faculty) cb(err, true);
+                else cb(err, false);
+            });
+        }
+    });
+}
+
 function registerCRUDRoutes(model, leadingPathNoSlash) {
     let leadingPath = '/api/' + leadingPathNoSlash;
     app.get(leadingPath + '/list', model.httpGet());
