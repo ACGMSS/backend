@@ -16,5 +16,14 @@
 - better error messages with map
 - research, job openings, etc., when signing up for a class
 
+map:
+
+- store lat, lng of location when registering office hours for a class
+  - store building name
+    - available as place.name after autocompletion has occurred
+    - can get this just by making a place variable that's globally available
+  - store room number
+- display this as two separate things
+
 maybe:
 - upload pictures

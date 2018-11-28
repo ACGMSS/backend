@@ -1,6 +1,24 @@
 const mongoose = require("mongoose");
 const common = require("./common");
 
+const OfficeHoursLocation = new mongoose.Schema({
+    buildingName: {
+        type: String,
+        required: true,
+    },
+    buildingLatitude: {
+        type: Number,
+        required: true,
+    },
+    buildingLongitude: {
+        type: Number,
+        required: true,
+    },
+    room: {
+        type: String,
+        required: true,
+    },
+});
 
 const SectionAdministration = new mongoose.Schema({
     section: {
@@ -15,8 +33,8 @@ const SectionAdministration = new mongoose.Schema({
     },
     officeHoursLocation: {
         required: true,
-        type: String
-    }
+        type: OfficeHoursLocation
+    },
 });
 
 const JobOpening = new mongoose.Schema({
