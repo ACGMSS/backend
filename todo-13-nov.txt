@@ -10,13 +10,13 @@
 - display personal information about faculty (research interests and so on)
 - let TAs edit their personal information
 - password resets
-- storing map locations as something other than a string (so that it can be piped into gmaps.... is there a gmaps ID?)
 - get rid of period and show hours
 - real detailed course view
 - better error messages with map
 - research, job openings, etc., when signing up for a class
 - making fields required
 - drop down menu to enter period hours
+- upstream changes from find-my-ta into real git (or just drop that submodule?)
 
 map:
 
