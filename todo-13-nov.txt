@@ -1,31 +1,17 @@
 - let TAs edit their office hours and other information for courses
-- display more detailed information about the course
-- add these things to pivotal tracker
+  (including table with sets of office hours)
 - embed rate my professor
 - loading bar when loading courses from one.uf.edu
 - get /all/ courses, not just the first 50
 - add better error message when a student is not logged in
-- ?? prevent faculty from registering for the same section number twice?
-- allow registering office hours as something other than a string
-- display personal information about faculty (research interests and so on)
-- let TAs edit their personal information
 - password resets
-- get rid of period and show hours
 - real detailed course view
-- better error messages with map
 - research, job openings, etc., when signing up for a class
 - making fields required
-- drop down menu to enter period hours
-- upstream changes from find-my-ta into real git (or just drop that submodule?)
-
-map:
-
-- store lat, lng of location when registering office hours for a class
-  - store building name
-    - available as place.name after autocompletion has occurred
-    - can get this just by making a place variable that's globally available
-  - store room number
-- display this as two separate things
+- drop down menu to enter period hours (allow registering office hours as something other than a string)
+- display proper username
+- future courses
+- embed twitter
 
 maybe:
 - upload pictures
