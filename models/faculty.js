@@ -20,6 +20,17 @@ const OfficeHoursLocation = new mongoose.Schema({
     },
 });
 
+const OfficeHoursTime = new mongoose.Schema({
+    day: {
+        type: String,
+        required: true,
+    },
+    time: {
+        type: String,
+        required: true
+    }
+});
+
 const SectionAdministration = new mongoose.Schema({
     section: {
         type: mongoose.Schema.Types.ObjectId,
@@ -27,9 +38,9 @@ const SectionAdministration = new mongoose.Schema({
     },
     discord: String,
     slack: String,
-    officeHoursTime: {
+    officeHoursTimes: {
         required: true,
-        type: String,
+        type: [OfficeHoursTime],
     },
     officeHoursLocation: {
         required: true,
