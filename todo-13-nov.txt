@@ -1,20 +1,17 @@
 - let TAs edit their office hours and other information for courses
-  (including table with sets of office hours)
-- embed rate my professor
-- loading bar when loading courses from one.uf.edu
-- get /all/ courses, not just the first 50
-- add better error message when a student is not logged in
-- password resets
-- real detailed course view
+  (including table with sets of office hours) (jess)
+- embed rate my professor (jess)
+- loading bar when loading courses from one.uf.edu (???)
+- get /all/ courses, not just the first 50 (jess)
+- add better error message when a student is not logged in (???)
+- real detailed course view (jess)
 - research, job openings, etc., when signing up for a class
-- making fields required
-- display proper username
-- future courses
-- embed twitter
+- making fields required (chris)
+- display proper username (yichong)
+- future courses (jess)
+- embed twitter (navid)
 - submission only available if certain fields are non-null
 - drop UI cruft (eg buttons on the side of the student home)
 - in detailed course view, replace period with hours
-
-maybe:
-- upload pictures
-- students personal information?
+- min password length (jake)
+- pivotal tracker (jake)
