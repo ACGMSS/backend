@@ -8,10 +8,12 @@
 - real detailed course view
 - research, job openings, etc., when signing up for a class
 - making fields required
-- drop down menu to enter period hours (allow registering office hours as something other than a string)
 - display proper username
 - future courses
 - embed twitter
+- submission only available if certain fields are non-null
+- drop UI cruft (eg buttons on the side of the student home)
 
 maybe:
 - upload pictures
+- students personal information?

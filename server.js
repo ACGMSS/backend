@@ -142,7 +142,7 @@ app.get('/api/detailed_section/:sectionNumber', (req, res) => {
                     _id: x._id,
                     name: x.name,
                     email: x.email,
-                    officeHoursTime: course.officeHoursTime,
+                    officeHoursTimes: course.officeHoursTimes,
                     officeHoursLocation: course.officeHoursLocation
                 };
             });
@@ -189,7 +189,7 @@ app.put('/api/faculty/:faculty_id/manage_course', (req, res) => {
                     section: section._id,
                     discord: req.body.discord,
                     slack: req.body.slack,
-                    officeHoursTime: req.body.officeHoursTime,
+                    officeHoursTimes: req.body.officeHoursTimes,
                     officeHoursLocation: req.body.officeHoursLocation
                 }
             }
