@@ -120,7 +120,7 @@ app.put('/api/student/:student_id/drop_course/:section_id', (req, res) => {
             }
         }, (err) => {
             if (err) return res.status(400).send(err);
-            return res.status(200).send("Course added");
+            return res.status(200).send("Course dropped");
         });
     });
 });
@@ -197,6 +197,21 @@ app.put('/api/faculty/:faculty_id/manage_course', (req, res) => {
             if (err) return res.status(400).send(err);
             return res.status(200).send("Course added");
         });
+    });
+});
+
+app.put('/api/faculty/:faculty_id/drop_course/:course_id', (req, res) => {
+    Faculty.findOneAndUpdate({
+        _id: req.params.faculty_id,
+    }, {
+        $pull: {
+            courses: {
+                section: req.params.course_id
+            }
+        }
+    }, (err) => {
+        if (err) return res.status(400).send(err);
+        return res.status(200).send("Course dropped");
     });
 });
 
