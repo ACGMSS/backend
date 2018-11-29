@@ -13,6 +13,7 @@
 - embed twitter
 - submission only available if certain fields are non-null
 - drop UI cruft (eg buttons on the side of the student home)
+- in detailed course view, replace period with hours
 
 maybe:
 - upload pictures
