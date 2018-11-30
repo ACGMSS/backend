@@ -8,6 +8,5 @@
 - min password length (jake)
 - pivotal tracker (jake)
 
-- future courses (jess)
-- log out function (jess)
+- log out function (students and faculty) (jess)
 - push final product to heroku (jess)
