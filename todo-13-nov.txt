@@ -11,8 +11,6 @@
 - real detailed course view (jess)
 - get /all/ courses, not just the first 50 (jess)
 - embed rate my professor (jess)
-- let TAs edit their office hours and other information for courses
-  (including table with sets of office hours) (jess)
 - future courses (jess)
 - data for chris (jess)
 - log out function (jess)
