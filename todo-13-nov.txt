@@ -8,7 +8,7 @@
 - min password length (jake)
 - pivotal tracker (jake)
 
-- real detailed course view (jess)
+- let professors add research positions and display this in the professor page (jess)
 - get /all/ courses, not just the first 50 (jess)
 - embed rate my professor (jess)
 - future courses (jess)
