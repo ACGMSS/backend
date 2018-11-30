@@ -8,7 +8,7 @@
 - min password length (jake)
 - pivotal tracker (jake)
 
-- embed rate my professor (and drop it as an input field) (but add their name as an input field) (jess)
+- embed rate my professor (and drop it as an input field) (iframe) (jess)
 - future courses (jess)
 - log out function (jess)
 - push final product to heroku (jess)
