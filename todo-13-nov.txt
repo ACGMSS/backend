@@ -8,8 +8,8 @@
 - min password length (jake)
 - pivotal tracker (jake)
 
-- let professors add research positions and display this in the professor page (jess)
 - embed rate my professor (and drop it as an input field) (but add their name as an input field) (jess)
 - future courses (jess)
 - data for chris (jess)
 - log out function (jess)
+- push final product to heroku (jess)
