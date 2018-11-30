@@ -14,4 +14,3 @@
 - future courses (jess)
 - data for chris (jess)
 - log out function (jess)
-- in detailed course view, replace period with hours (jess)
