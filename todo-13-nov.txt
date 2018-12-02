@@ -1,12 +1,8 @@
-- loading bar when loading courses from one.uf.edu (???)
-- add better error message when a student is not logged in (???)
-- making fields required (chris)
 - display proper username (yichong)
 - embed twitter (navid)
-- submission only available if certain fields are non-null
-- drop UI cruft (eg buttons on the side of the student home)
-- min password length (jake)
 - pivotal tracker (jake)
-
-- log out function (students and faculty) (jess)
+- log out function (students and faculty) (chris)
 - push final product to heroku (jess)
+- home should take you to either the student's home or the faculty's home (chris)
+- tables scrollable (chris)
+
